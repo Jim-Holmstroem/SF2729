@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for i in $(ls);
+    do
+        if [ -d  "$i" ]; then
+            if [ -d "$i/doc" ]; then
+                cd "$i/doc"
+                    case $1 in
+                        clean ) make clean;;
+                        make ) make;;
+                        *) echo "\"$1\" is an unknown command.";break;;
+                    esac
+                cd -
+            fi
+        fi
+    done;

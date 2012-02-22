@@ -1,0 +1,88 @@
+\documentclass[a4paper,twoside=false,abstract=false,numbers=noenddot,
+titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[colorlinks=true, pdfstartview=FitV,
+linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\GG}{\ensuremath{\mathcal{G}}}
+\newcommand{\Fourier}{\ensuremath{\mathcal{F}}}
+\newcommand{\Laplace}{\ensuremath{\mathcal{L}}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\author{Jim Holmström - 890503-7571}
+\title{Groups and Rings - SF2729}
+\subtitle{Homework 4}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{exercise}
+{\bf
+Let $G$ be a finite group. Show that for any element $a \in G$, we have $a^{|G|}=e$.
+}
+\end{exercise}
+\begin{solution}
+$\forall a \in G$ we have $<a> \le G$ and Lagrange's theorem $\Rightarrow n=|<a>|$ divides $|G|$ \\
+$<a>=\{a,a^2,..,a^n=e\}$ \\
+We have that $n$ divides $|G|$ then $m=|G|/n$ is guaranteed to be an integer.\\
+$a^{|G|}=a^{mn}=(a^{n})^m=e^m=e \qed$
+
+
+\end{solution}
+
+%-----------------------
+\begin{exercise}
+{\bf
+We say that a $G$-set is transitive if it has only one orbit. Assume that $G$ is finite and $X$ is a transitive $G$-set. Show that $X$ also is finite and that $|X|$ divides $|G|$
+}
+\end{exercise}
+\begin{solution}
+$X$ transitive $\Rightarrow$ $X=Gx \forall x \in X$ since $G$ only has $|G|$ elements we have $|X|=|Gx| \le |G|$
+If $G,X < \infty$ then the orbit-stabilizer theorem and Lagrange's theorem gives 
+$|Gx|=\left[ G : G_x \right] =|G|/|G_x|$ which shows that $|Gx||G_x|=|G|$ 
+$\Rightarrow$ $|X||G_x|=|G|$ which shows that $|X|$ divides $|G|$ $\qed$
+\end{solution}
+
+
+%-----------------------
+\end{document}

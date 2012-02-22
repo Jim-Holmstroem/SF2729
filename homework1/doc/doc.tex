@@ -1,0 +1,143 @@
+\documentclass[a4paper,twoside=false,abstract=false,numbers=noenddot,
+titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[colorlinks=true, pdfstartview=FitV,
+linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\GG}{\ensuremath{\mathcal{G}}}
+\newcommand{\Fourier}{\ensuremath{\mathcal{F}}}
+\newcommand{\Laplace}{\ensuremath{\mathcal{L}}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\author{Jim Holmström - 890503-7571}
+\title{Groups and Rings - SF2729}
+\subtitle{Homework 1}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{exercise}
+{\bf
+Give a table for binary operation on the set $\{e,a,b\}$ of
+three elements satisfying axioms $\GG_2$ (existence of a unit) 
+and $\GG_3$ (existence of inverses) 
+but not the axiom $\GG_1$ (associativity)
+}
+\end{exercise}
+\begin{solution}
+$e$ (identity element) in each row/colon 
+of the table $\Rightarrow$ $\GG_2 \wedge \GG_3$
+Then we just make the same element 
+appear twice $\Rightarrow$ table unable to represent a group, 
+that together with $\GG_{1:3}=$ Group $\Rightarrow  \lnot \GG_1 \qed$
+
+
+\begin{center}
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{ c|*{3}{c}}
+        * & e & a & b \\ \hline
+        e & e & a & b \\ 
+        a & a & e & b \\ 
+        b & b & a & e \\ 
+    \end{tabular}
+    \caption{Example of a $\GG_2 \wedge \GG_3 \wedge \lnot \GG_1$}
+    \label{table:nongroup_example}
+\end{table}
+\end{center}
+
+\end{solution}
+
+%-----------------------
+
+\begin{exercise}
+{\bf
+Let $G$ be a group with a finit number of elements.
+Show that $\forall a \in G \exists n \in \ZZ_+ : a^n=e$ 
+where the symbol $a^n$ denotes the multiplication of $a$ $n$-times.
+}
+\end{exercise}
+\begin{solution}
+Since $|G|<\infty$ not all $a^n$ can be different for all positive $n$. Thus $\exists n_1 > n_2 : a^{n_1}=a^{n_2}$.
+Using the group axioms one gets, $a^{n_1-n_2}=e$ which shows that it exists a $n=n_1-n_2>0$ which satisfies this $\forall a$ in the finite group. \qed
+\end{solution}
+
+%-----------------------
+
+\begin{exercise}
+{\bf
+$a,b \in G$ (where $G$ is a group)
+Show $(a*b)^2=a^2*b^2 \Rightarrow a*b=b*a$
+}
+\end{exercise}
+\begin{solution}
+\begin{align*}
+    (a*b)^2 &= a^2*b^2 & \\
+    (a*b)*(a*b) &= (a*a)*(b*b) &\mbox{ (Associativity of groups)} \\
+    a*((b*a)*b) &= a*((a*b)*b) &\mbox{ (Cancel out a then b)} \\
+    b*a &= a*b &
+\end{align*}
+\qed
+\end{solution}
+
+%-----------------------
+
+\begin{exercise}
+{\bf
+Let $G$ be a group and let $g$ be one fixed element of $G$.
+Show that the map $i_g : G \rightarrow G$ such that $i_g(x)=gxg^{-1}$ 
+for $x \in G$ is an isomorphism. 
+}
+\end{exercise}
+\begin{solution}
+Let $a,b \in G$ \\
+$i_g(a)=i_g(b) \Rightarrow g*a*g^{-1} = g*b*g^{-1}$ cancelate (since $g,g^{-1} \in G$) $\Rightarrow a=b$ and thus $i_g$ is one-to-one. \\
+$i_g(g^{-1}*a*g) = g*g^{-1}*a*g*g^{-1} = a$ $i_g$ maps $G$ onto $G$.\\
+$i_g(a*b)=g*a*b*g^{-1}=g*a*(g^{-1}*g)*b*g^{-1}=(g*a*g^{-1})*(g*b*g^{-1})=i_g(a)*i_g(b)$ and thereby satisfies the homomorphism.\\
+$\therefore$ $i_g$ is an homomorphism, it's one-to-one and onto and are therefore a isomorphism. $\qed$ 
+
+\end{solution}
+
+%\clearpage
+
+\end{document}
