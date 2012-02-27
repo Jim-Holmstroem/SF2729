@@ -58,20 +58,36 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \begin{exercise}
 {\bf
-    Let $n \ge 1$ and $S_n$ be the permutation group. Describe all group homomorphisms $f : S_n \rightarrow Z_3$.
+Let $n \ge 1$ and $S_n$ be the permutation group. Describe all group homomorphisms $f : S_n \rightarrow Z_3$.
 }
 \end{exercise}
 \begin{solution}
+
 \end{solution}
 
 %-----------------------
 \begin{exercise}
 {\bf
-    Let $G$ be a  finite group. Consider its center $Z(G) = \{ g \in G : ga=ag \forall a\in G\}$.\\
-    Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
+Let $G$ be a  finite group. Consider its center $Z(G) = \{ g \in G : ga=ag \forall a\in G\}$.\\
+Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
 }
 \end{exercise}
 \begin{solution}
+$G/Z(G)$ is cyclic $\Rightarrow \exists g \in G/Z(G) : G/Z(G) = \langle g
+\rangle$\\
+Thus $\exists h \in G : G/Z(G) = \langle hZ(G) \rangle$\\
+that is all cosets of $Z(G)$ is on the form $(hZ(G))=h^iZ(G)$. \\
+$x,y \in G$ suppose $x \in h^mZ(G),y \in h^nZ(G)$ that is $x$ and $y$ belongs
+to cosets. $\exists z_1,z_2 \in Z(G) : x=h^mz_1 and y=h^nz_2 $\\
+\begin{align*}
+    xy &= h^mz_1h^nz_2 = (z_1\in Z(G) \Rightarrow z_1 \mbox{commutes} \forall h
+    \in G)\\
+    xy &= h^mh^nz_1z_2 \\
+    xy &= h^{m+n}z_1z_2 \\
+\end{align*}
+We have the same thing in the same way with $yx$ and thus $xy=yx$ $\forall x,y
+\in G$ making $G$ abelian $\qed$.
+
 \end{solution}
 
 
