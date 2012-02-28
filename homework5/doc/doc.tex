@@ -58,10 +58,27 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \begin{exercise}
 {\bf
-Let $n \ge 1$ and $S_n$ be the permutation group. Describe all group homomorphisms $f : S_n \rightarrow Z_3$.
+Let $n \ge 1$ and $S_n$ be the permutation group. 
+Describe all group homomorphisms $f : S_n \rightarrow Z_3$.
 }
 \end{exercise}
 \begin{solution}
+
+For $n>2$
+
+%$\Phi$ is a homomorphism then $\Phi \left[ G \right] \le G$.\\
+
+
+Show it "By hand" for $S_1$ and $S_2$\\
+
+$\Phi(e)\Phi(a)\Phi(e*a)=\Phi(a) \Rightarrow \Phi(e)=e'$ Holds forall group
+homomorphisms. Basicly saying that identity is mapped to identity.\\
+$S_1=\{e\}$,$\Phi(e)=e'$ which for $Z_3$ is 0. \\
+$S_2=\{e,(1 2)\}$,$\Phi(e)=0$ and $(1 2)$ has order 2 and thus $\Phi((1 2)(1
+2)=e)=\Phi^2((1 2))=0$\\
+And with $\{0^2=0,1^2=2,2^2=4=1\}$ we have that $\Phi^2=0 \Rightarrow \Phi=0$
+
+Which show that the homomorphism must be $\Phi(a)=0$ for $S_1$ and $S_2$
 
 \end{solution}
 
@@ -76,7 +93,7 @@ Show that if $G/Z(G)$ is cyclic, then $G$ is abelian.
 $G/Z(G)$ is cyclic $\Rightarrow \exists g \in G/Z(G) : G/Z(G) = \langle g
 \rangle$\\
 Thus $\exists h \in G : G/Z(G) = \langle hZ(G) \rangle$\\
-that is all cosets of $Z(G)$ is on the form $(hZ(G))=h^iZ(G)$. \\
+that is all cosets of $Z(G)$ is on the form $(hZ(G))^i=h^iZ(G)$. \\
 $x,y \in G$ suppose $x \in h^mZ(G),y \in h^nZ(G)$ that is $x$ and $y$ belongs
 to cosets. $\exists z_1,z_2 \in Z(G) : x=h^mz_1 and y=h^nz_2 $\\
 \begin{align*}
