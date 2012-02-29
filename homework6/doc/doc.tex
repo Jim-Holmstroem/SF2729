@@ -58,17 +58,55 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \begin{exercise}
 {\bf
+Let $H=\langle (12) \rangle \le S_3$ and $K=\langle (123) \rangle \le S_3$\\
+Consider the $S_3$-set given by $S_3/H \times S_3/K$ Write this $S_3$-set as a
+disjoint union of transitive $S_3$-sets.
 }
 \end{exercise}
 \begin{solution}
-\end{solution}
 
-%-----------------------
-\begin{exercise}
-{\bf
-}
-\end{exercise}
-\begin{solution}
+$h=(12)$ and $k=(123)$ \\
+
+General rules used:\\
+$b\langle b \rangle=\langle b \rangle$\\
+$b^{-1}\langle b \rangle=\langle b \rangle$\\
+
+
+\begin{equation*}
+    S_3/H=\{H,(13)H,(23)H\}
+\end{equation*}
+
+\begin{equation*}
+    S_3/K=\{K,(12)K\}
+\end{equation*}
+
+\begin{align*}
+    S_3/H \times S_3/K  &=        & &\\
+                        &\{  (H,K)&,& (    H,(12)K), \\
+                        &((13)H,K)&,& ((13)H,(12)K), \\
+                        &((23)H,K)&,& ((23)H,(12)K)\}
+\end{align*}
+
+Transitive if $\forall x_1,x_2 \in S_3-$set$\exists g \in S_3 : gx_1 = x_2$\\
+
+$h(aH,K)=(ahH=ah\langle h\rangle ,hK)=(aH,hK)$ for $a=\{e,(13),(23)\}$\\
+$(13)((13)H,(12)K)=(H,(13)(12)K=(123)K=K)$\\
+$(23)((23)H,(12)K)=(H,(23)(12)K=(132)K=(132)(123)K=K)$ \\
+Since G is closed under the operation one can take any combination of these
+elements above to get from $\forall x_1$ to $\forall x_2$ with some $g=g_1g_2
+\in G$ and all elements are therefore transitive.\\
+
+So the resulting disjoint union of transitive $S_3$-sets being simply (without
+union): \\
+\begin{align*}
+    S_3/H \times S_3/K  &=        & &\\
+                        &\{  (H,K)&,& (    H,(12)K), \\
+                        &((13)H,K)&,& ((13)H,(12)K), \\
+                        &((23)H,K)&,& ((23)H,(12)K)\}
+\end{align*}
+
+
+
 \end{solution}
 
 %-----------------------
