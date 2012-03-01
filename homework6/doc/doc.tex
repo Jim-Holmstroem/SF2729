@@ -69,7 +69,7 @@ $h=(12)$ and $k=(123)$ \\
 
 General rules used:\\
 $b\langle b \rangle=\langle b \rangle$\\
-$b^{-1}\langle b \rangle=\langle b \rangle$\\
+$b^{-1}\langle b \rangle=\langle b \rangle$ ($\langle b \rangle$ is cyclic)\\
 
 
 \begin{equation*}
@@ -89,15 +89,23 @@ $b^{-1}\langle b \rangle=\langle b \rangle$\\
 
 Transitive if $\forall x_1,x_2 \in S_3-$set$\exists g \in S_3 : gx_1 = x_2$\\
 
-$h(aH,K)=(ahH=ah\langle h\rangle ,hK)=(aH,hK)$ for $a=\{e,(13),(23)\}$\\
-$(13)((13)H,(12)K)=(H,(13)(12)K=(123)K=K)$\\
-$(23)((23)H,(12)K)=(H,(23)(12)K=(132)K=(132)(123)K=K)$ \\
+%$h(aH,K)=(ahH=ah\langle h\rangle ,hK)=(aH,hK)$ for $a=\{e,(13),(23)\}$\\
+$(12)(H,K)=(hH=h\langle h\rangle ,hK)=(H,(12)K)$\\
+$(13)((13)H,(12)K)=(H,(13)(12)K=(123)K=K)=(H,K)$\\
+$(23)((23)H,(12)K)=(H,(23)(12)K=(132)K=k^{-1}K=K)=(H,K)$\\
+$(12)((23)H,(12)K)=((12)(23)H=(123)H=(123)(12)H=(13)H,K)=((13)H,K)\\$
+$(23)((23)H,K)=(H,(23)k^{-1}K=(23)(132)K=(12)K)=(H,(12)K)$\\
+
 Since G is closed under the operation one can take any combination of these
-elements above to get from $\forall x_1$ to $\forall x_2$ with some $g=g_1g_2
-\in G$ and all elements are therefore transitive.\\
+$g_i$ (or its inverse if you want to go in the other direction) to get from
+$\forall x_1$ to $\forall x_2$ with some $g=g_2g_1 \in G$ and 
+all elements are therefore transitive. (One can easily show that these are
+connected by drawing an arrow from $\rightarrow$ to (and a backarrow with the
+inverse permutation) the elements in the five equations above in the 
+listing of the set above.)\\
 
 So the resulting disjoint union of transitive $S_3$-sets being simply (without
-union): \\
+union):\\
 \begin{align*}
     S_3/H \times S_3/K  &=        & &\\
                         &\{  (H,K)&,& (    H,(12)K), \\
