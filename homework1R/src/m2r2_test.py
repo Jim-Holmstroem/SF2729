@@ -72,20 +72,25 @@ R = map(lambda r:M2R2(r),range(16))
 Rstar=copy.copy(R)
 Rstar.remove(Zero)
 
-M2R2_list_printer(Rstar,Zero)
-
-print "========================="
 
 mul_table=map(lambda a:map(lambda b:(0,1)[a*b==Zero],Rstar),Rstar)
+
+dozsmatrix=map(lambda a:[a,filter(lambda b:a*b==Zero,R)],R)
+
+for doz in dozsmatrix:
+    M2R2_list_printer(doz[1],doz[0])
+    print "------------------"
 
 num_divofzero=map(sum,mul_table)
 Rstar_num=zip(Rstar,num_divofzero)
 
 Rdivofzero=map(lambda r:r[0],filter(lambda r_num:bool(r_num[1]),Rstar_num))
 
-M2R2_list_printer(Rdivofzero)
+#M2R2_list_printer(Rdivofzero)
 
 
+#Commutative? NO
+#print all(map(lambda (a,b):a*b==b*a,itt.product(R,repeat=2)))
 
 
 
