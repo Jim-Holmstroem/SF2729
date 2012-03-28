@@ -2,7 +2,7 @@ import operator
 import copy
 import itertools as itt
 import string
-
+import math
 
 class Zn:
 
@@ -41,29 +41,37 @@ class Zn:
         return g**n
         """
         return Zn(self.n,(self.i**m)%self.n)
+    
     def __hash__(self):
         return self.i
-
-
 
 def print_listing(listing):
     line=""
     for g,has in listing.iteritems():
         line+=(str(g)+" | ")
         for h in has:
-            line+=string.center(str(h),4)
+            line+=string.center(str(h),6)
         print line
         line=""
 
-
 N=1026
+
+divisors=filter(lambda a:operator.mod(N,a)==0,range(1,int(math.sqrt(N))))
 
 Z=map(lambda i:Zn(N,i),range(N))
 Zero=Zn(N,0)
 One=Zn(N,1)
 
-g18=map(lambda g:g**18,Z)
+#complete list with information
+UZlist=(map(lambda g:(g,filter(lambda b:g*b==One,Z)),Z))
 
-UZ=dict(map(lambda g:(g,filter(lambda b:g*b==One,Z)),Z))
+#pickout the elements forming U(Z)
+UZ=map(lambda u:u[0],filter(lambda (key,v):len(v)!=0,UZlist)) #pickout the key
 
-print_listing(UZ)
+#gpows=map(lambda m:(m,map(lambda g:g**m,UZ)),divisors)
+gpows=map(lambda m:(m,map(lambda g:g**m,UZ)),range(1,N))
+
+print_listing(dict(gpows))
+#print_listing(dict(UZlist))
+
+
