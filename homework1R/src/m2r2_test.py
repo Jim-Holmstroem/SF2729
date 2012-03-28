@@ -25,7 +25,7 @@ class M2R2:
         return str(self.bits[0])+str(self.bits[1])+"\n"+str(self.bits[2])+str(self.bits[3]); 
 
     def __eq__(self,b):
-        return all(map(operator.eq,self.bits,b.bits)) #make to list, if all elements are equal
+        return all(map(operator.eq,self.bits,b.bits))
     def __ne__(self,b):
         return not operator.__eq__(self,b)
 
