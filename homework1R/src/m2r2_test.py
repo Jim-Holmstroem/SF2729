@@ -75,7 +75,7 @@ Rstar.remove(Zero)
 e=filter(lambda i: all(map(lambda b:i*b==b,Rstar)),Rstar)
 assert len(e)==1
 e=e[0]
-
+"""
 mul_table=map(lambda a:map(lambda b:(0,1)[a*b==Zero],Rstar),Rstar)
 
 dozsmatrix=map(lambda a:[a,filter(lambda b:a*b==Zero,R)],R)
@@ -89,22 +89,40 @@ num_divofzero=map(sum,mul_table)
 Rstar_num=zip(Rstar,num_divofzero)
 
 Rdivofzero=map(lambda r:r[0],filter(lambda r_num:bool(r_num[1]),Rstar_num))
-
+"""
 #M2R2_list_printer(Rdivofzero)
 
 #Commutative? NO
 #print all(map(lambda (a,b):a*b==b*a,itt.product(R,repeat=2)))
 #Identity? 1010
 #M2R2_list_printer(filter(lambda i: all(map(lambda b:i*b==b,Rstar)),Rstar))
-
+"""
 print "group of unit"
 
 groupofunit=map(lambda a:[a,filter(lambda b:a*b==e,Rstar)],Rstar)
 
+
 for unit in groupofunit:
     M2R2_list_printer(unit[1],unit[0])
     print "------------------"
+"""
 
+
+
+
+A=M2R2([0,1,1,0])
+B=M2R2([1,0,1,1])
+C=M2R2([1,1,0,1])
+D=M2R2([0,1,1,1])
+E=M2R2([1,1,1,0])
+order2=[A,B,C]
+order3=[D,E]
+
+print "E[A,B,C]"
+map(lambda u:M2R2_printer(E*u),order2)
+
+print "D[A,B,C]"
+map(lambda u:M2R2_printer(D*u),order2)
 
 
 """
