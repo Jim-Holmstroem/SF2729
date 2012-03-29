@@ -34,8 +34,6 @@ class Zn:
     def __mul__(self,other):
         assert self.n==other.n #not defined else
         return Zn(self.n,(self.i*other.i)%self.n)
-    def __rmul__(self,other): #Commutative
-        return operator.__mul__(self,other)
     def __pow__(self,m):
         """
         return g**n
