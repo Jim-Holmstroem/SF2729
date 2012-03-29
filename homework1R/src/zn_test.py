@@ -55,18 +55,13 @@ class Zn:
 
 #========Setup===================================
 N=1026
+m=18
 Z=map(lambda i:Zn(N,i),range(N)) #Generate all elements
 Zero=Zn(N,0) #Generate zero
 One=Zn(N,1) #Generate one
 
 #========Assignment=============================
-UZinfo=(map(lambda g:(g,filter(lambda b:g*b==One,Z)),Z))
+UZ=filter(lambda b:any(map(lambda g:g*b==b*g==One,Z)),Z) #\exists g:gb=bg=1
 
-#pickout the elements forming U(Z)
-UZ=map(lambda u:u[0],filter(lambda (key,v):len(v)!=0,UZinfo)) #pickout the key
-print UZ
-
-gpows=map(lambda m:(m,map(lambda g:g**m,UZ)),range(1,N))
-
-print_listing(dict(gpows[18]))
-    
+print "g^18=1 forall g?",all(map(lambda g:g**18==One,UZ)) #is all g^18= \forall g \in U(Z)
+ 
