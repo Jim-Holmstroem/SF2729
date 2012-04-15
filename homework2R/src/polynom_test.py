@@ -69,7 +69,13 @@ class Polynom:
         N=len(self)
         M=len(other)
         #if all elements is equal and the part hanging outside is all zero then the polynoms are equal
-        return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and sum(self.c[M:N],0)==0 and sum(other.c[N:M],0)==0
+        if(N==M):#fugly code #TODO fixit 
+            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) 
+        elif(M<N):
+            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and reduce(operator.add,self.c[M:N])==0
+        else:#(N<M)
+            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and reduce(operator.add,other.c[N:M])==0
+
     def __neq__(self,other):
         return not operator.__eq__(self,other)
 
@@ -105,7 +111,7 @@ print pa==Polynom([1,2,3,0])
 print not pa==Polynom([1,2,3,0,1])
 
 m=2
-degree=2
+degree=3
 
 Zm=map(lambda i:Zn(m,i),range(m))
 
