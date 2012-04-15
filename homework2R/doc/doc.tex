@@ -90,7 +90,6 @@ $\sigma_m(a)= a~(mod~m)$.
 {\alph{qc}.}
 {
     \usecounter{qc}
-    \bfseries
     \setlength\labelwidth{3in}
 }
     \item 
@@ -103,10 +102,34 @@ $\sigma_m(a)= a~(mod~m)$.
         $
         and
         $
-
-
+        \overline{\sigma_m}(f(x)g(x)) =
+        \overline{\sigma_m}\left(
+                                \sum
+                                    \left(
+                                        \sum f_ig_{n-i} 
+                                    \right)
+                                    x^n 
+                            \right) 
+        =
+        \sum \overline{\sigma_m}
+                            \left(
+                                \sum f_ig_{n-i}
+                            \right)x^n
+        =
+        \sum \left(
+                    \sum \overline{\sigma_m}(f_ig_{n-i})
+            \right) x^n
+        =
+        \sum \left(
+                    \sum \overline{\sigma_m}(f_i)\overline{\sigma_m}(g_{n-i})
+            \right) x^n
+        =
+        \overline{\sigma_m}(f(x))\overline{\sigma_m}(g(x))
         $
-
+        Which shows that $\overline{\sigma_m}$ is an homomorphism.\\
+        $a(x)\in \ZZ_m\left[x\right]$ and $b(x)\in \ZZ\left[x\right]$ having the
+        same coeffs but seen as in \ZZ instead of $\ZZ_m$ with this we see that
+        $\overline{\sigma_m}(a(x))=b(x)$, so it is onto. $\qed$
     \item
 
     \item 
