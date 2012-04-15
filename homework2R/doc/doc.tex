@@ -131,9 +131,26 @@ $\sigma_m(a)= a~(mod~m)$.
         same coeffs but seen as in \ZZ instead of $\ZZ_m$ with this we see that
         $\overline{\sigma_m}(a(x))=b(x)$, so it is onto. $\qed$
     \item
-
+        $f=gh$ for $g,h\in\ZZ\left[x\right]$ where 
+        $degree(f)>degree(g) \wedge degree(f)>degree(h)$\\
+        Applying $\overline{\sigma_m}$ on $f$:
+        $\overline{\sigma_m}(f)=\overline{\sigma_m}(g)\overline{\sigma_m}(h)$
+        is a factorization of $\overline{\sigma_m}$ into polynoms with a degree
+        less then $n$ of $\overline{\sigma_m}(f)$ which is a contradiction\\
+        $\Rightarrow$ $f(x)$ is irreducible in $\ZZ\left[x\right]$\\
+        $\Rightarrow$ (by Theorem 23.11) $f(x)$ is irreducible in $\QQ\left[x\right]$
+        $\qed$
     \item 
-    
+        Magically choosing $m=5$\\
+        $\overline{\sigma_5}(x^3+17x+36)=x^3+2x+1$\\
+        By hand it's simple to show that:\\
+        \begin{equation}
+            (x^3+2x+1)(\{-2,-1,0,1,2\}) \neq 0
+        \end{equation}
+        and by Theorem 23.10 irreducible over $\ZZ_5$ and by the findings in (b)
+        we also have that $x^3+17x+36$ is irreducible over $\QQ$
+        $\qed$
+
 \end{list}
 
 \end{solution}
