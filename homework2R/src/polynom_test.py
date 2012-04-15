@@ -56,9 +56,11 @@ class Polynom:
 
     def __str__(self):
         output=""
-        for i,c_i in reversed(enumerate(self.c)):
-            if(i!=0):
-                output+=str(c_i)+"X^"+str(i)+"+"
+        for i,c_i in enumerate(reversed(self.c)):
+            if((len(self)-i-1)>1): #fugly with double reverse TODO fix
+                output+=str(c_i)+"X^"+str(len(self)-i-1)+"+"
+            elif((len(self)-i-1)==1):
+                output+=str(c_i)+"X+"
             else:
                 output+=str(c_i)
         return output
@@ -69,7 +71,7 @@ class Polynom:
         return not operator.__eq__(self,other)
 
     def __add__(self,other):
-        c_res=map(operator.add,itt.izip_longest(self.c,other.c,fillvalue=0))
+        c_res=map(lambda (i,j):i+j,itt.izip_longest(self.c,other.c,fillvalue=0))
         return Polynom(c_res)
 
     
@@ -78,20 +80,18 @@ class Polynom:
 
     def __mul__(self,other):
         #cauchy
-        c_n=[0]*(len(self)+len(other))
+        c_n=[0]*(len(self)+len(other)-1)
 
-        for k in range(c_n):
-            c_n[k] = map(lambda: self.c(i)*other.c(j),filter(lambda i,j:i+j==k,itt.product(range(len(self)),range(len(other)))))
-
-        #reduce(lambda i,j:(i+j,self.c(i)+other.c(j)),
-        #    
-        #range(len(self)+len(other))
-         
+        for k in range(len(c_n)): #a little bit fugly with a forloop but gets nasty without
+            filtered=filter(lambda (i,j):i+j==k,itt.product(range(len(self)),range(len(other))))
+            c_n[k] = sum(map(lambda (i,j): self.c[i]*other.c[j],filtered))
+        
+        return Polynom(c_n)
 
 
-pa=Polynom([2,5,1])
+pa=Polynom([1,2,3])
 print pa
-pb=Polynom([1,1,2])
+pb=Polynom([1,2,3])
 print pb
 print pa+pb
 print pa*pb
