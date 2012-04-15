@@ -86,9 +86,7 @@ class Polynom:
 
         for k in range(len(c_n)): #a little bit fugly with a forloop but gets nasty without
             filtered=filter(lambda (i,j):i+j==k,itt.product(range(len(self)),range(len(other))))
-            print type(self.c[0])
-            print type(other.c[0])
-            c_n[k] = sum(map(lambda (i,j): self.c[i]*other.c[j],filtered))
+            c_n[k] = reduce(operator.add,map(lambda (i,j): self.c[i]*other.c[j],filtered))
         
         return Polynom(c_n)
 
@@ -106,16 +104,15 @@ print pa==Polynom([1,2,3])
 print pa==Polynom([1,2,3,0])
 print not pa==Polynom([1,2,3,0,1])
 
-
-m=3
-degree=3
+m=2
+degree=2
 
 Zm=map(lambda i:Zn(m,i),range(m))
 
 PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
 
-for f in PZm:
-    print f
+#for f in PZm:
+#    print f
 
 
 F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
