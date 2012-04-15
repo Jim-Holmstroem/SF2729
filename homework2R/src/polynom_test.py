@@ -22,9 +22,11 @@ class Zn:
 
     def __eq__(self,other):
         """
-        Must be of the same Zn to be the same
+        NOOOOT!! Must be of the same Zn to be the same
         """
-        return self.n==other.n and self.i==other.i
+        if(isinstance(other,int)):
+            return self.i==other
+        return self.i==other.i
     def __ne__(self,other):
         return not operator.__eq__(self,other)
     
@@ -69,12 +71,13 @@ class Polynom:
         N=len(self)
         M=len(other)
         #if all elements is equal and the part hanging outside is all zero then the polynoms are equal
+        pseudoeq=all(map(lambda (a,b):a==b,zip(self.c,other.c)))
         if(N==M):#fugly code #TODO fixit 
-            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) 
+            return pseudoeq 
         elif(M<N):
-            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and reduce(operator.add,self.c[M:N])==0
+            return pseudoeq and reduce(operator.add,self.c[M:N])==0
         else:#(N<M)
-            return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and reduce(operator.add,other.c[N:M])==0
+            return pseudoeq and reduce(operator.add,other.c[N:M])==0
 
     def __neq__(self,other):
         return not operator.__eq__(self,other)
@@ -120,8 +123,9 @@ PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
 #for f in PZm:
 #    print f
 
-
 F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
+
+#print F 
 
 factors=filter(lambda (f,g):f*g==F,itt.product(PZm,repeat=2))
 
