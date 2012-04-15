@@ -11,9 +11,8 @@ class Zn:
         """
         Initz Z_n with the element i
         """
-        assert 0<=i<n
         self.n=n
-        self.i=i
+        self.i=i%n #fugly but works with negative numbers which is nice (but platform dependent perhaps)
 
     def __str__(self):
         """
@@ -58,7 +57,8 @@ class Polynom:
         output=""
         for i,c_i in enumerate(reversed(self.c)):
             if((len(self)-i-1)>1): #fugly with double reverse TODO fix
-                output+=str(c_i)+"X^"+str(len(self)-i-1)+"+"
+                output+=str(c_i)
+                output+="X^"+str(len(self)-i-1)+"+"
             elif((len(self)-i-1)==1):
                 output+=str(c_i)+"X+"
             else:
@@ -66,14 +66,16 @@ class Polynom:
         return output
 
     def __eq__(self,other):
-        return self.c==other.c
+        N=len(self)
+        M=len(other)
+        #if all elements is equal and the part hanging outside is all zero then the polynoms are equal
+        return all(map(lambda (a,b):a==b,zip(self.c,other.c))) and sum(self.c[M:N],0)==0 and sum(other.c[N:M],0)==0
     def __neq__(self,other):
         return not operator.__eq__(self,other)
 
     def __add__(self,other):
         c_res=map(lambda (i,j):i+j,itt.izip_longest(self.c,other.c,fillvalue=0))
         return Polynom(c_res)
-
     
     def __len__(self):
         return len(self.c)
@@ -84,6 +86,8 @@ class Polynom:
 
         for k in range(len(c_n)): #a little bit fugly with a forloop but gets nasty without
             filtered=filter(lambda (i,j):i+j==k,itt.product(range(len(self)),range(len(other))))
+            print type(self.c[0])
+            print type(other.c[0])
             c_n[k] = sum(map(lambda (i,j): self.c[i]*other.c[j],filtered))
         
         return Polynom(c_n)
@@ -96,5 +100,28 @@ print pb
 print pa+pb
 print pa*pb
 
+print pa==pb
+print pa+pb!=pa
+print pa==Polynom([1,2,3])
+print pa==Polynom([1,2,3,0])
+print not pa==Polynom([1,2,3,0,1])
 
+
+m=3
+degree=3
+
+Zm=map(lambda i:Zn(m,i),range(m))
+
+PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
+
+for f in PZm:
+    print f
+
+
+F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
+
+factors=filter(lambda (f,g):f*g==F,itt.product(PZm,repeat=2))
+
+for f,g in factors:
+    print str(f)+"*"+str(g)+"="+str(f*g)
 
