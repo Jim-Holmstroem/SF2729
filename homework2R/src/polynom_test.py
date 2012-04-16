@@ -113,22 +113,19 @@ print pa==Polynom([1,2,3])
 print pa==Polynom([1,2,3,0])
 print not pa==Polynom([1,2,3,0,1])
 
-m=2
 degree=3
+for m in [2,3,5]:
+    print "m=",m,",degree",degree,":"
+    Zm=map(lambda i:Zn(m,i),range(m))
 
-Zm=map(lambda i:Zn(m,i),range(m))
+    PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
 
-PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
+    F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
 
-#for f in PZm:
-#    print f
+    factors=filter(lambda (f,g):f*g==F,itt.product(PZm,repeat=2))
 
-F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
+    for f,g in factors:
+        print str(f)+"*"+str(g)+"="+str(f*g)
 
-#print F 
 
-factors=filter(lambda (f,g):f*g==F,itt.product(PZm,repeat=2))
-
-for f,g in factors:
-    print str(f)+"*"+str(g)+"="+str(f*g)
 
