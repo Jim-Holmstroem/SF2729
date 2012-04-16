@@ -175,9 +175,34 @@ $(x^2+3x+1)(x^2+2x+4)=x^4-x^2+1$
 Which are all found by a computer program (see last in document) and hand verified to so that the
 calculations is correct and the terms indeed irreducible.\\
 
-
+Now prove that $f(X)$ is irreducible in $\ZZ\left[X\right]$. Firstly noting
+that I don't have infinite RAM nor infinite time so are abandoning the
+computer program for this part.\\
+For $f$ to have a
+zero in \ZZ ~ it must divide $1$, so the only $2$ possibilities are the units and we
+have that $f(1)=f(-1)=1\neq0$. Which results in no factors of degree 1.\\
+Now look for factors of degree $2$:\\
+Assume factors and exists and expand the polynoms with general coeffs in \ZZ:\\
+\begin{equation}
+    (a_2x^2+a_1x+a_0)(b_2x^2+b_1x+b_0)=x^4-x^2+1
+\end{equation}
+Calculate the left side (by Cauchy-product) and pattern-match the coeffs:\\
+\begin{eqnarray}
+    a_0b_0&=&1 \\
+    a_0b_1+a_1b_0&=&0\\
+    a_0b_2+a_1b_1+a_2b_0&=&-1\\
+    a_2b_1+a_1b_2&=&0\\ 
+    a_2b_2&=&1
+\end{eqnarray}
+One can see that this system is not solvable in \ZZ~ since from the first $2$
+equations we have $(a_0=b_0=1 \bigvee a_0=b_0=-1)\bigwedge(a_2=b_2=1\bigvee
+a_2=b_2=-1)$\\ and testing all these possible combinations of $a_0,b_0,a_2,b_2$
+in the three last equations will all be insolvable in \ZZ~ and thus leaving us
+with that $f$ can't be factored in \ZZ~ by definition irreducible in
+$\ZZ\left[X\right] \qed$
 
 \end{solution}
+\newpage
 The computer-program in use:\\
 \begin{verbatim}
 import operator
@@ -193,7 +218,8 @@ class Zn:
         Initz Z_n with the element i
         """
         self.n=n
-        self.i=i%n #fugly but works with negative numbers which is nice (but platform dependent perhaps)
+        self.i=i%n  #fugly but works with negative numbers which is nice i
+                    #(but platform dependent perhaps)
 
     def __str__(self):
         """
@@ -248,7 +274,8 @@ class Polynom:
     def __eq__(self,other):
         N=len(self)
         M=len(other)
-        #if all elements is equal and the part hanging outside is all zero then the polynoms are equal
+        #if all elements is equal and the part hanging outside is all zero
+        #then the polynoms are equal
         pseudoeq=all(map(lambda (a,b):a==b,zip(self.c,other.c)))
         if(N==M):#fugly code #TODO fixit 
             return pseudoeq 
@@ -271,9 +298,11 @@ class Polynom:
         #cauchy
         c_n=[0]*(len(self)+len(other)-1)
 
-        for k in range(len(c_n)): #a little bit fugly with a forloop but gets nasty without
-            filtered=filter(lambda (i,j):i+j==k,itt.product(range(len(self)),range(len(other))))
-            c_n[k] = reduce(operator.add,map(lambda (i,j): self.c[i]*other.c[j],filtered))
+        for k in range(len(c_n)): 
+            filtered=filter(lambda (i,j):i+j==k,itt.product(range(len(self)),
+            range(len(other))))
+            c_n[k] = reduce(operator.add,map(lambda (i,j): 
+            self.c[i]*other.c[j],filtered))
         
         return Polynom(c_n)
 
@@ -284,7 +313,7 @@ for m in [2,3,5]:
 
     PZm=map(lambda c:Polynom(c),itt.product(Zm,repeat=(degree+1)))
 
-    F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) #fugly since -1%m can be machinedependant
+    F=Polynom(map(lambda i:Zn(m,i),[1,0,-1,0,1])) 
 
     factors=filter(lambda (f,g):f*g==F,itt.product(PZm,repeat=2))
 
@@ -294,8 +323,6 @@ for m in [2,3,5]:
 #also tested the choosen factors from above from factors (to be irreducible)
 
 \end{verbatim}
-
-
 
 %-----------------------
 \end{document}
