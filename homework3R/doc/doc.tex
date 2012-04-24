@@ -63,6 +63,35 @@ the map $\phi_p:R\rightarrow R$ given by $\phi_p(a)=a^p$ is a homomorphism.
 }
 \end{exercise}
 \begin{solution}
+In a commutative ring 
+\begin{equation}
+    (a+b)^n=\sum \binom{n}{k} a^ib^{n-i}
+\end{equation}
+holds. Where
+\begin{equation}
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+\end{equation}
+and we can see that we have if $n$ is prime.
+\begin{equation}
+    p|\binom{p}{i} ~~ \forall i \in \left[1,p-1\right]
+\end{equation}
+and hence the terms
+\begin{equation}
+    \binom{p}{i}a^ib^{p-i}=0
+\end{equation}
+in a commutative ring with characteristic $p$. This gives us the "freshman's dream"
+\begin{equation}
+    (a+b)^p=a^p+b^p
+\end{equation}
+With these facts its easy to show that $\phi$ is a homomorphism.
+\begin{equation}
+    \phi_p(a+b)=(a+b)^p=a^p+b^p=\phi_p(a)+\phi_p(b)
+\end{equation}
+and trivially since $R$ is commutative
+\begin{equation}
+    \phi_p(ab)=(ab)^p=a^pb^p=\phi_p(a)\phi_p(b)
+\end{equation}
+and thus $\phi_p$ is a homomorphism. \qed
 
 \end{solution}
 

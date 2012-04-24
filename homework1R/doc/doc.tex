@@ -53,6 +53,8 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \begin{document}
 
+\date{}
+
 \maketitle
 \thispagestyle{empty}
 
@@ -211,7 +213,7 @@ Divisors of zero
 00 00 00 01 01 10 10 11 11 
 01 10 11 00 01 00 10 00 11 
 \end{verbatim}
-And they are $9$ $\qed$\\
+And they are $9$ in number $\qed$\\
 
 To generate $U(M_2(Z_2))$ and find isomorphisms:\\
 \begin{verbatim}
@@ -402,12 +404,14 @@ Zero=Zn(N,0) #Generate zero
 One=Zn(N,1) #Generate one
 
 #========Assignment=============================
+#generate U(Z_1026)
 UZ=filter(lambda b:any(map(lambda g:g*b==b*g==One,Z)),Z) #\exists g:gb=bg=1
 
-print "g^18=1 forall g?",all(map(lambda g:g**18==One,UZ)) #is all g^18= \forall g \in U(Z)
+#is all g^18= \forall g \in U(Z_1026)
+print "g^18=1 forall g?",all(map(lambda g:g**18==One,UZ)) 
 \end{verbatim}
 
-Which returns true, showing by bruteforce that $g^{18}=1 \forall g \in U(Z)$
+Which returns true, showing by bruteforce that $g^{18}=1 \forall g \in U(Z_{1026})$
 
 The code used can be downloaded from:\\
 \url{http://www.f.kth.se/~jimho/sf2729/zn_test.py}
