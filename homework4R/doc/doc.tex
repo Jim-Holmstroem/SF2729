@@ -63,6 +63,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \begin{solution}
 
 \begin{equation}
+    \label{eq:circular}
     \{ACC\Leftrightarrow MC\Leftrightarrow FBC\}
     \Leftrightarrow
     \{ACC\Rightarrow MC,MC\Rightarrow FBC,FBC\Rightarrow ACC\}
@@ -102,7 +103,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
             b_2 \notin N_1 \Rightarrow N_1 \subset N_2 \subset N
         \end{equation}
         $N$ is not finitely generated we can continue with the above to
-        infinity $\Rightarrow N_1 \subset \N_2 \subset \dots \subset N$
+        infinity $\Rightarrow N_1 \subset N_2 \subset \ldots \subset N$
         That is $N_i \subset N_{i+1}$ which $\Rightarrow \lnot{MC}$
     \item[$FBC\Rightarrow ACC:$]
         Let the chain of ideals in R be
@@ -110,8 +111,16 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
             N_1 \subseteq N_2 \subseteq \dots, N_i \lhd R
         \end{equation}
         \begin{equation}
+            \label{eq:intersect}
             \bigcup{N_i}=N\lhd R
         \end{equation}
+        Let $B_N=\{b_i|i\in \left[1,n\right]\}$ be a finite basis for $N$ then
+        suppose $b_i \in N_i$ and let $r$ be the maximum subscript $i$ then
+        $B_n \subseteq N_r$ and we have (\ref{eq:intersect}) (all ideals
+        containing the elements from $B_N$) $\Rightarrow N_r=R$ and 
+        $N_r=N_{r+i} \Rightarrow ACC$
+
+    Using (\ref{eq:circular}) to show the wanted expression $\qed$
 
 
 \end{description}
