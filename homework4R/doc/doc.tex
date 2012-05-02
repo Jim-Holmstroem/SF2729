@@ -49,7 +49,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 
 \author{Jim Holmström - 890503-7571}
 \title{Groups and Rings - SF2729}
-\subtitle{Skeleton}
+\subtitle{Homework 4 (rings)}
 
 \begin{document}
 
@@ -61,6 +61,46 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 }
 \end{exercise}
 \begin{solution}
+
+\begin{equation}
+    \{ACC\Leftrightarrow MC\Leftrightarrow FBC\}
+    \Leftrightarrow
+    \{ACC\Rightarrow MC,MC\Rightarrow FBC,FBC\Rightarrow ACC\}
+\end{equation} 
+
+\begin{description}
+    \item[$ACC\Rightarrow MC:$] 
+        Instead show it by a rewrite
+        \begin{equation}
+            \{ACC\Rightarrow MC\}\Leftrightarrow \{\lnot{MC}\Rightarrow \lnot{ACC}\}
+        \end{equation}
+        If $\lnot{MC}$ then $\exists S$ of ideals with no ideal not properly
+        contained in any other ideal of $S$ so the sequence of ideals extends
+        to infinity $\Rightarrow \lnot{ACC}$
+    \item[$MC\Rightarrow FBC:$]
+        As above show it by a rewrite
+        \begin{equation}
+            \{MC\Rightarrow FBC\}\Leftrightarrow \{\lnot{FBC}\Rightarrow\lnot{MC}\}
+        \end{equation}
+        If $\lnot{FBC}$ $\exists$ ideal $N$ in $R$ having no finite generating
+        set. Let
+        \begin{equation}
+            b_1 \in N, \langle b_1 \rangle=N_1,r \in R
+        \end{equation}
+        By the properties of ideal we have
+        \begin{equation}
+            rb_1 \in N \forall r \Leftarrow \langle b_1 \rangle=N_1 \subset N 
+        \end{equation}
+        $N_1 \subset N$ since otherwise it would contradict $FBC$ by $b_1$
+        generating $N$.
+        Let 
+        \begin{equation}
+        $b_2\in N\N_2$ 
+        \end{equation}
+    \item[$FBC\Rightarrow ACC:$]
+                
+\end{description}
+
 \end{solution}
 
 %-----------------------
@@ -69,6 +109,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 }
 \end{exercise}
 \begin{solution}
+test
 \end{solution}
 
 %-----------------------
