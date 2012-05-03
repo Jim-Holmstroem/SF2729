@@ -19,6 +19,8 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 
+\usepackage{enumerate}
+
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}
 
@@ -120,10 +122,9 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
         containing the elements from $B_N$) $\Rightarrow N_r=R$ and 
         $N_r=N_{r+i} \Rightarrow ACC$
 
-    Using (\ref{eq:circular}) to show the wanted expression $\qed$
-
-
 \end{description}
+Using (\ref{eq:circular}) to show the wanted expression $\qed$
+
 
 \end{solution}
 
@@ -133,7 +134,35 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 }
 \end{exercise}
 \begin{solution}
-test
+
+\begin{enumerate}[a)]
+    \item 
+        Let $\gamma + \langle \alpha \rangle$ be a coset of
+        $\ZZ\left[i\right]/\langle \alpha \rangle$. The division algorithm
+        gives us 
+        \begin{equation}
+            \gamma=\alpha\sigma + \rho,\rho=0 \vee N(\rho)<N(\alpha)
+        \end{equation}
+        then
+        \begin{equation}
+            \gamma+\langle\alpha\rangle=\rho+\sigma\alpha+\langle\alpha\rangle
+        \end{equation}
+        we have $\sigma\alpha\in\langle\alpha\rangle$
+        \begin{equation}
+            \gamma+\langle\alpha\rangle=\rho+\langle\alpha\rangle
+        \end{equation}
+        thus all cosets contains a representative with norm < $N(\alpha)$.
+        \begin{equation}
+            \#\{a\in\ZZ\left[i\right]|norm < N(\alpha)\}<\inf \Rightarrow
+            |\ZZ\left[i\right] / \langle\alpha\rangle|<\inf
+        \end{equation}
+        $\qed$
+    \item
+        
+    \item 
+
+\end{enumerate}
+
 \end{solution}
 
 %-----------------------
