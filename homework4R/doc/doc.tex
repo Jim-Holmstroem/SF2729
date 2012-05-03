@@ -136,7 +136,7 @@ Using (\ref{eq:circular}) to show the wanted expression $\qed$
 \begin{solution}
 
 \begin{enumerate}[a)]
-    \item 
+    \item
         Let $\gamma + \langle \alpha \rangle$ be a coset of
         $\ZZ\left[i\right]/\langle \alpha \rangle$. The division algorithm
         gives us 
@@ -179,6 +179,52 @@ Using (\ref{eq:circular}) to show the wanted expression $\qed$
         $\ZZ\left[i\right]$ $\Rightarrow \ZZ\left[i\right]/\langle\pi\rangle$
         is a field. $\qed$ 
     \item 
+        \begin{enumerate}[i.]
+            \item
+                \begin{equation}
+                    \ZZ\left[i\right]/\langle3\rangle
+                \end{equation}
+                $3,3i\in\langle 3\rangle \Rightarrow \forall$ cosets is on the
+                form $a+bi~~~a,b\in\{0,1,2\}$ and thus there 
+                $|\{0,1,2\}\times\{0,1,2\}|=3^2=9$ unique elements.
+                And the characteristic is 
+                \begin{equation}
+                    \text{argmin}_{c>0}(\sum^c{1}=0) 
+                \end{equation}
+                and we have $\sum^3{1}=0$ and thus the characteristic is $3$
+                $\qed$
+            \item
+                \begin{equation}
+                    \ZZ\left[i\right]/\langle1+i\rangle
+                \end{equation}
+                We know from previous exercise that each coset contains
+                representative with norm less than $N(1+i)=2$.\\
+                The only nonzero elements with norm less than $2$ are $\{\pm
+                1,\pm i\}$. Observing
+                \begin{equation}
+                    \pm i=\pm(-1+(1+i))
+                \end{equation}
+                Which gives us the possible nontrivial cosets $\pm 1+\langle 1+i \rangle$
+                but we have that 
+                \begin{equation}
+                    1+\langle 1+i \rangle-(-1+\langle 1+i \rangle)
+                    =2+\langle 1+i \rangle=(1+i)(1-i)+\langle 1+i \rangle
+                \end{equation}
+                Which gives us the cosets $\langle 1+i \rangle,1+\langle 1+i
+                \rangle$
+                and thus the ring has order $2$ and characteristic $2$ $\qed$
+            \item
+                \begin{equation}
+                    \ZZ\left[i\right]/\langle1+2i\rangle
+                \end{equation}
+                We know from previous exercise that each coset contains
+                representative with norm less than $N(1+2i)=5$.\\
+                Elements are on the form $a+bi~~~(a,b)\in\{0,\pm 1\}^2$ 
+                or $\{\pm 2\}\times\{0\}$ or $\{0\}\times\{\pm 2\}$
+                Breaking out $(1+2i)$ out of all these possible we get that
+                every coset has the representatives $\{0,\pm 1,\pm 2\}$ that is
+                the ring has $5$ elements and characteristic of $5$ $\qed$
+        \end{enumerate}
 
 \end{enumerate}
 
