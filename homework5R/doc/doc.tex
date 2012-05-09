@@ -1,0 +1,102 @@
+\documentclass[a4paper,twoside=false,abstract=false,numbers=noenddot,
+titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage[colorlinks=true, pdfstartview=FitV,
+linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{multirow}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Solution}
+\newtheorem*{remark}{Remark}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\NN}{\ensuremath{\mathbb{N}}}
+\newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
+\newcommand{\QQ}{\ensuremath{\mathbb{Q}}}
+\newcommand{\RR}{\ensuremath{\mathbb{R}}}
+\newcommand{\CC}{\ensuremath{\mathbb{C}}}
+\newcommand{\GG}{\ensuremath{\mathcal{G}}}
+\newcommand{\Fourier}{\ensuremath{\mathcal{F}}}
+\newcommand{\Laplace}{\ensuremath{\mathcal{L}}}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\newcommand{\poly}[4]{#1_{0#4}+#1_{1#4}{#2}+#1_{2#4}{#2}^2+\dots+#1_{#3#4}{#2}^{#3}}
+
+\author{Jim Holmström - 890503-7571}
+\title{Groups and Rings - SF2729}
+\subtitle{Homework 5 (Rings)}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{exercise}
+{\bf
+    Let $E$ be an extension field of $F$, and let $\alpha,\beta \in E$. Suppose
+    $\alpha$ is transcendental over $F$ but algebraic over $F(\beta)$. Show that
+    $\beta$ is algebraic $F(\alpha)$.
+}
+\end{exercise}
+\begin{solution}
+    $\alpha$ algebraic over $F(\beta) \Rightarrow \exists \alpha :
+    poly(\alpha)=0,poly\neq0$, generally
+    \begin{equation}
+        \poly{c}{\alpha}{n}{}=0,c_i \in F(\beta)
+    \end{equation}
+    $c_i \in F(\beta) \Leftrightarrow c_i=\poly{c}{\beta}{m}{j}$ with $c_{i}\in
+    F$.
+    \begin{equation}
+        \poly{(\poly{c}{\beta}{m}{bajs}}{\alpha}{n}{hmm}
+    \end{equation}
+\end{solution}
+
+%-----------------------
+\begin{exercise}
+{\bf
+    Let $E$ be a finite extension field of $F$. Let $D$ be an integral domain :
+    $F\subseteq D\subseteq E$. Show that $D$ is a field.
+}
+\end{exercise}
+\begin{solution}
+    To show this we only need to show that $\alpha \in D\backslash \{0\}
+    \Rightarrow \alpha^{-1} \in D$ since we know that $D$ is commutative 
+    and has unity from it's integral domain properties. 
+    $E$ is finite extension over $F \Rightarrow \alpha$ algebraic over $F$.
+    With $deg(\alpha,F)=n$ Theorem 30.23 gives us
+    \begin{equation}
+        F(\alpha) = \{ a_0+a_1\alpha+a_2\alpha^2+\dots+a_{n-1}\alpha^{n-1} |a_i\in F\}
+    \end{equation}
+    $\alpha^{-1}\in F(\alpha)$, that is $\alpha^{-1}$ can be written as a
+    polynomial of $\alpha$ with coeffs in $F$, and is in $D$ $\qed$
+\end{solution}
+
+%-----------------------
+\end{document}
