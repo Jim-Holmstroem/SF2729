@@ -48,6 +48,7 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \renewcommand{\labelenumi}{(\alph{enumi})}
 
 \newcommand{\poly}[4]{#1_{0#4}+#1_{1#4}{#2}+#1_{2#4}{#2}^2+\dots+#1_{#3#4}{#2}^{#3}}
+\newcommand{\polymod}[4]{#1_{{#4}0}+#1_{{#4}1}{#2}+#1_{{#4}2}{#2}^2+\dots+#1_{#4#3}{#2}^{#3}}
 
 \author{Jim Holmström - 890503-7571}
 \title{Groups and Rings - SF2729}
@@ -71,12 +72,37 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
     \begin{equation}
         \poly{c}{\alpha}{n}{}=0,c_i \in F(\beta)
     \end{equation}
-    $c_i \in F(\beta) \Leftrightarrow c_i=\poly{c}{\beta}{m}{j}$ with $c_{i}\in
-    F$.
     \begin{equation}
-        \poly{(\poly{c}{\beta}{m}{bajs}}{\alpha}{n}{hmm}
+        c_i \in F(\beta) \Leftrightarrow c_i=\poly{c}{\beta}{m}{i},c_{ij}\in F
     \end{equation}
-\end{solution}
+    By observing the expressions in index notation
+    \begin{equation}
+        \sum_j{\left(\sum_i{c_{ij}\beta^i}\right)\alpha^j}=
+        \sum_{i,j}{c_{ij}\beta^i\alpha^j}=
+        \sum_{i,j}{c_{ij}\alpha^j\beta^i}=
+        \sum_i{\left(\sum_j{c_{ij}\alpha^j}\right)\beta^j}
+    \end{equation}
+    and written out more explicity it becomes
+    \begin{equation}
+        \begin{split}
+            & (\poly{c}{\beta}{m}{0}) + \\
+            & (\poly{c}{\beta}{m}{1})\alpha + \\
+            & (\poly{c}{\beta}{m}{2})\alpha^2 + \\
+            &\dots \\
+            & (\poly{c}{\beta}{m}{n})\alpha^n
+        \end{split}
+    \end{equation}
+    rearranged to the expression
+    \begin{equation}
+        \begin{split}
+            & (\polymod{c}{\alpha}{n}{0}) + \\
+            & (\polymod{c}{\alpha}{n}{1})\beta + \\
+            & (\polymod{c}{\alpha}{n}{2})\beta^2 + \\
+            &\dots \\
+            & (\polymod{c}{\alpha}{n}{m})\beta^m
+        \end{split}
+    \end{equation}
+    \end{solution}
 
 %-----------------------
 \begin{exercise}
