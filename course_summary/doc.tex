@@ -15,6 +15,7 @@
 
 \newcommand{\REL}{\ensuremath{\mathfrak{R}}}
 \renewcommand{\SS}{\ensuremath{\mathcal{S}}}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}}
 \newcommand{\GG}{\ensuremath{\mathcal{G}}}
 \newcommand{\RR}{\ensuremath{\mathcal{R}}}
 
@@ -47,9 +48,22 @@
 
 \section{Structures}
 \subsection{Set}
+\subsection{Binary algebraic structure}
+\label{sec:binstructure}
+Denoted by $\langle\SS,*\rangle$ is a set $\SS$ with a 
+binary operator $*$ on $\SS$. 
 \subsection{Group}
+\label{sec:group}
+A group is a binary algebraic structure \eqref{sec:binstructure} with the
+following properties:\\
+G1\\
+G2
+...
+
 \subsection{Ring}
+\label{sec:ring}
 \subsection{Field}
+\label{sec:field}
 
 \section{Substructures}
 \subsection{Subgroup}
@@ -58,8 +72,36 @@
 
 \section{Relations between structures}
 \subsection{Homomorphism}
+\label{sec:homo}
+A map that preserves the algebraic structure between 
+$\langle\SS,*\rangle,\langle\SS',*'\rangle$ by satisfying:
+\begin{equation}
+    \phi(x*y)=\phi(x)*'\phi(y) \quad \forall x,y\in\SS
+\end{equation}
+
 \subsection{Isomorphism}
+\label{sec:iso}
+A isomorphism is a homomorphism \eqref{sec:homo} with the additional property
+of $\phi$ being a one-to-one map between $\SS$ and $\SS'$.
+
+$\exists \phi$ isomorphism between 
+$\langle\SS,*\rangle,\langle\SS',*'\rangle$
+we say that those are isomorphic. Isomorphic is denoted by $\SS \cong \SS'$ 
+omitting the $\langle\cdot,*\rangle$ since it
+almost always clear which operator is considered.
+
+\subsubsection{Showing that binary structures are isomorphic}
+\begin{description}
+    \item[Step 1] Define $\phi$, that is describe $\phi(a) \forall a\in\SS$
+    \item[Step 2] Show that $\phi$ is one-to-one. \eqref{sec:onetoone}
+    \item[Step 3] Show that $\phi$ is onto. \eqref{sec:onto}
+    \item[Step 4] Show that $\phi$ is a homomorphism. \eqref{sec:homo}
+
+\end{description}
+
 \subsection{Group action}
+\label{sec:groupaction}
+
 
 \section{Bijective functions}
 \subsection{Permutation}
@@ -75,7 +117,7 @@
 
 \subsection{Equivalence relation \REL}
 \begin{center}
-\REL~ is an equivalence relation on a set \SS~ \\
+$\REL$ is an equivalence relation on a set $\SS$ \\
 $\Leftrightarrow$
 \end{center}
 
@@ -87,6 +129,8 @@ $\Leftrightarrow$
     \end{array} , \forall x,y,z \in \SS
 \right.\end{equation}
 
+The equivalence relation is often denoted with a \textasciitilde
+
 \subsection{Binary operations $*$}
 \begin{equation}
      \begin{array}{r l}
@@ -97,14 +141,53 @@ $\Leftrightarrow$
 
 The binary function $*((x,y))$ is denoted by $x*y$.
 
-\subsubsection{Closed under *}
+\subsubsection{\HH\, closed under $*$}
+$\HH\subseteq\SS$ closed under $*$:
+\begin{equation}
+    \label{eq:closed}
+    a,b \in \HH \Rightarrow (a*b) \in \HH 
+\end{equation}
+Note that in the case $\HH=\SS$ will always be closed from the definition of
+the operation.
+
 
 \subsubsection{Commutative}
+Commutativity is the operation property:
+\begin{equation}
+    \label{eq:comm}
+    a*b=b*a \quad \forall a,b \in \SS 
+\end{equation}
 
 \subsubsection{Associative}
+Associativity is the operation property:
 \begin{equation}
-    (a*b)*c = a*(b*c)
+    \label{eq:assoc}
+    (a*b)*c = a*(b*c) \quad \forall a,b,c \in \SS
 \end{equation}
-Which gives us 
+which basically means that the order of operation is invariant and we might as
+well denote both expressions in \eqref{eq:assoc} unambiguously without specifying
+the operation order with $a*b*c$.
+
+\section{these are grouped somehow}
+\subsection{One-to-one}
+\label{sec:onetoone}
+A one-to-one map $\phi$ means that each element $x$ has a corresponding $\phi(x)$.
+
+Show one-to-one by showing:
+\begin{equation}
+    \label{eq:onetoone}
+    \phi(x)=\phi(y) \in\SS' \Rightarrow x=y \in\SS
+\end{equation}
+That is given the first statement in \eqref{eq:onetoone} deduce the next
+statement.
+
+\subsection{Onto}
+\label{sec:onto}
+$\phi$ is onto $\SS'$ if ...
+Show onto by showing:
+\begin{equation}
+   \forall x'\exists x : \phi(x) = x' \quad x\in\SS,x'\in\SS'
+\end{equation}
+That is assume $x'$ is given show that $\exists ...$
 
 \end{document}
