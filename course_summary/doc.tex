@@ -13,6 +13,9 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 
+\newtheorem{theorem}{Theorem}
+\newtheorem{note}{Note}
+
 \newcommand{\REL}{\ensuremath{\mathfrak{R}}}
 \renewcommand{\SS}{\ensuremath{\mathcal{S}}}
 \newcommand{\HH}{\ensuremath{\mathcal{H}}}
@@ -52,6 +55,41 @@
 \label{sec:binstructure}
 Denoted by $\langle\SS,*\rangle$ is a set $\SS$ with a 
 binary operator $*$ on $\SS$. 
+
+\subsubsection{Identity element}
+An element $e$ is an identity element in the structure $\langle\SS,*\rangle$
+\begin{equation}
+   e*x=x*e=x \quad \forall x\in\SS 
+\end{equation}
+
+\begin{theorem}
+The identity element $e$ is unique in the binary structure
+... p32
+\end{theorem}
+\begin{proof}
+    p32    
+\end{proof}
+\begin{theorem}
+    If $\phi:\SS\rightarrow\SS'$ is an isomorphism of $\langle\SS,*\rangle$
+    with $\langle\SS',*'\rangle$ then %todo this is the correct thing to say, use it else where.
+    $\phi(e)$ will be the identity in $\langle\SS',*'\rangle$.
+\end{theorem}
+\begin{proof}
+Need to show   
+\begin{equation}
+    \phi(e)*'x'=x'*'\phi(e)=x' \quad \forall x'\in\SS'
+\end{equation}
+$\phi$ is onto\eqref{sec:onto}.
+\begin{equation}
+    e*x=x*e=x \Rightarrow \phi(e*x)=\phi(x*e)=\phi(x) 
+\end{equation}
+We chose $x:\phi(x)=x'$ using the homomorphism property we can rewrite it to
+\begin{equation}
+    \phi(e)*'\phi(x)=\phi(x)*'\phi(e)=\phi(x) 
+\end{equation}
+\end{proof}
+
+
 \subsection{Group}
 \label{sec:group}
 A group is a binary algebraic structure \eqref{sec:binstructure} with the
